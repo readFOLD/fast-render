@@ -2,8 +2,8 @@ var fs = Npm.require('fs');
 var path = Npm.require('path');
 
 Package.describe({
-  "summary": "Render you app even before the DDP connection comes live. - magic?",
-  "version": "2.3.2",
+  "summary": "Render your app before the DDP connection even comes alive - magic?",
+  "version": "2.10.0",
   "git": "https://github.com/readFOLD/fast-render",
   "name": "fold:fast-render"
 });
@@ -22,6 +22,8 @@ Package.onTest(function(api) {
   configure(api);
   api.use('tinytest', ['client', 'server']);
   api.use('http', 'server');
+  api.use('random', ['server', 'client']);
+  api.use('mongo', ['server', 'client']);
 
   api.addFiles([
     'tests/utils.js'
@@ -40,10 +42,15 @@ Package.onTest(function(api) {
 
 function configure (api) {
   api.versionsFrom('METEOR@0.9.3');
+<<<<<<< HEAD
   api.use('meteorhacks:inject-data@1.2.3', ['client', 'server']);
   api.use('fold:iron-router@0.9.0 || 1.0.0', ['client', 'server'], {weak: true});
+=======
+  api.use('meteorhacks:inject-data@1.4.0', ['client', 'server']);
+  api.use('iron:router@0.9.0 || 1.0.0', ['client', 'server'], {weak: true});
+>>>>>>> c85e49f08eb0321a0f16ff1fcda8efe80f935e25
   api.use('chuangbo:cookie@1.1.0', 'client');
-  api.use('meteorhacks:picker@1.0.1', 'server');
+  api.use('meteorhacks:picker@1.0.3', 'server');
 
   api.use(['minimongo', 'livedata', 'ejson', 'underscore', 'webapp', 'routepolicy', 'accounts-base'], ['server']);
   api.use(['minimongo', 'underscore', 'deps', 'ejson', 'accounts-base'], ['client']);
@@ -63,6 +70,7 @@ function configure (api) {
   ], 'server');
 
   api.addFiles([
+    'lib/client/id_tools.js',
     'lib/client/fast_render.js',
     'lib/client/debugger.js',
     'lib/client/ddp_update.js',

@@ -42,13 +42,8 @@ Package.onTest(function(api) {
 
 function configure (api) {
   api.versionsFrom('METEOR@0.9.3');
-<<<<<<< HEAD
-  api.use('meteorhacks:inject-data@1.2.3', ['client', 'server']);
-  api.use('fold:iron-router@0.9.0 || 1.0.0', ['client', 'server'], {weak: true});
-=======
   api.use('meteorhacks:inject-data@1.4.0', ['client', 'server']);
-  api.use('iron:router@0.9.0 || 1.0.0', ['client', 'server'], {weak: true});
->>>>>>> c85e49f08eb0321a0f16ff1fcda8efe80f935e25
+  api.use('fold:iron-router@0.9.0 || 1.0.0', ['client', 'server'], {weak: true});
   api.use('chuangbo:cookie@1.1.0', 'client');
   api.use('meteorhacks:picker@1.0.3', 'server');
 
